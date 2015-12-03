@@ -13,3 +13,8 @@ Having fun with Functional Reactive Programming using BaconJS.
 For example
 
     npm start -- 1
+    
+## Run test
+
+    npm install
+    npm test
