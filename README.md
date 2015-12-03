@@ -5,6 +5,8 @@ exercises, putting the answer to each exercise in this repo.
 
 Having fun with Functional Reactive Programming using BaconJS.
 
+[![Build Status](https://travis-ci.org/hugojosefson/adventofcode-lab.svg?branch=master)](https://travis-ci.org/hugojosefson/adventofcode-lab)
+
 ## How to run
 
     npm install
@@ -15,8 +17,6 @@ For example
     npm start -- 1
     
 ## Run tests
-
-[![Build Status](https://travis-ci.org/hugojosefson/adventofcode-lab.svg?branch=master)](https://travis-ci.org/hugojosefson/adventofcode-lab)
 
     npm install
     npm test
