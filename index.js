@@ -4,11 +4,13 @@ import path from 'path';
 import {readFile} from 'fs';
 import Bacon from 'baconjs';
 
+import formatWithTwoDigits from './lib/format-with-two-digits';
+
 Bacon.constant(process)
     .map(process => process.argv.splice(2))
     .flatMap(args => Bacon.fromArray(args))
     .map(Number)
-    .map(number => number >= 10 ? '' + number : '0' + number)
+    .map(formatWithTwoDigits)
     .map(number => ({
         fn: require('./' + number).default,
         inputFilename: number + '-input'
