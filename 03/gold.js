@@ -1,16 +1,13 @@
 import Bacon from 'baconjs';
 import _ from 'lodash';
 
-const OK_CHAR = /[\^v<>]/;
-
-export default input => input
-    .flatMap(fileContents => Bacon.fromArray(fileContents.split('')))
-    .filter(char => OK_CHAR.test(char))
-    .decode({
-        '^': {x: 0, y: 1},
-        'v': {x: 0, y: -1},
-        '>': {x: 1, y: 0},
-        '<': {x: -1, y: 0}
+export default input$ => input$
+    .flatMap(input => Bacon.fromArray(input.split('')))
+    .map(char => {
+        if (char === '^') return {x: 0, y: 1};
+        if (char === 'v') return {x: 0, y: -1};
+        if (char === '>') return {x: 1, y: 0};
+        if (char === '<') return {x: -1, y: 0};
     })
     .reduce([[0, 0], [0, 0], {'0:0': true}], ([[x, y], other, houses], direction) => {
         const newX = x + direction.x;
@@ -18,7 +15,6 @@ export default input => input
         houses[`${newX}:${newY}`] = true;
         return [other, [newX, newY], houses];
     })
-    .last()
     .map(([[x, y], other, houses]) => houses)
     .map(_.pairs)
     .map('.length');
