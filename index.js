@@ -14,18 +14,18 @@ Bacon.constant(process)
     .map(formatWithTwoDigits)
     .map(number => ({
         number,
-        mod: safeRequire(`${__dirname}/${number}`),
+        silverMod: safeRequire(`${__dirname}/${number}/silver`),
         goldMod: safeRequire(`${__dirname}/${number}/gold`),
         inputFilename: path.join(__dirname, number, 'input')
     }))
-    .map(({number, mod, goldMod, inputFilename}) => ({
+    .map(({number, silverMod, goldMod, inputFilename}) => ({
         number,
-        fn: mod && mod.default,
+        silverFn: silverMod && silverMod.default,
         goldFn: goldMod && goldMod.default,
         input$: Bacon.fromNodeCallback(readFile, inputFilename, 'utf-8')
     }))
-    .flatMap(({number, fn, goldFn, input$}) => Bacon.zipAsArray([Bacon.once(number), fn && fn(input$) || Bacon.once(null), goldFn && goldFn(input$) || Bacon.once(null)]))
-    .map(([number, star, goldStar]) => ({number, star, goldStar}))
+    .flatMap(({number, silverFn, goldFn, input$}) => Bacon.zipAsArray([Bacon.once(number), silverFn && silverFn(input$) || Bacon.once(null), goldFn && goldFn(input$) || Bacon.once(null)]))
+    .map(([number, silver, gold]) => ({number, silver, gold}))
     .reduce([], (results, result) => results.concat(result))
     .map(results => results.sort((a, b) => Number(a.number) - Number(b.number)))
     .onValue(console.log);
