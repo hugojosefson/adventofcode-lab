@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Me doing the adventofcode.com exercises.",
   "scripts": {
+    "start": "babel-node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
