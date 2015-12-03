@@ -16,5 +16,7 @@ For example
     
 ## Run test
 
+[![Build Status](https://travis-ci.org/hugojosefson/adventofcode-lab.svg?branch=master)](https://travis-ci.org/hugojosefson/adventofcode-lab)
+
     npm install
     npm test
