@@ -1,14 +1,14 @@
 import Bacon from 'baconjs';
 import _ from 'lodash';
 
-export default ({start = 0, step = 1, interval = 0, template = {}} = {}) => Bacon.fromBinder(sink => {
-    let number = start;
+export default (template = {}) => Bacon.fromBinder(sink => {
+    let number = 0;
     const intervalId = setInterval(() => {
         for (let i = 1000000; i; i--) {
             sink(_.assign({}, template, {number}));
-            number += step;
+            number++;
         }
-    }, interval);
+    }, 0);
     return () => {
         clearInterval(intervalId);
     };
