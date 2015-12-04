@@ -14,7 +14,8 @@
     "babel-cli": "^6.2.0",
     "babel-preset-es2015": "^6.1.18",
     "baconjs": "^0.7.82",
-    "lodash": "^3.10.1"
+    "lodash": "^3.10.1",
+    "md5": "^2.0.0"
   },
   "devDependencies": {
     "chai": "^3.4.1",
