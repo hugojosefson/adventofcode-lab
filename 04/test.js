@@ -5,7 +5,7 @@ import describeTestCases from '../lib/describe-test-cases';
 import silver from './silver';
 import gold from './gold';
 
-describe('04', () => {
+describe.skip('04 - skipped because quite slow', () => {
     describeTestCases('silver', silver, [
         ['abcdef', 609043],
         ['pqrstuv', 1048970],
