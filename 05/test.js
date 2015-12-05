@@ -14,6 +14,7 @@ describe('05', () => {
         ['aquqoqiqeqyqssf', 1],
         ['aqiqeqssf', 1],
         ['aqqeqssf', 0],
-        ['aquqoqiqeqyqsf', 0]
+        ['aquqoqiqeqyqsf', 0],
+        [fs.readFileSync(path.join(__dirname, 'input'), 'utf8'), 258, 'input']
     ]);
 });
