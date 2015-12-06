@@ -6,6 +6,7 @@ import Bacon from 'baconjs';
 
 import safeRequire from './lib/safe-require';
 import formatWithTwoDigits from './lib/format-with-two-digits';
+import numericCompare from './lib/numeric-compare';
 
 Bacon.constant(process)
     .map(process => process.argv.splice(2))
@@ -27,5 +28,5 @@ Bacon.constant(process)
     .flatMap(({number, silverFn, goldFn, input$}) => Bacon.zipAsArray([Bacon.once(number), silverFn && silverFn(input$) || Bacon.once(null), goldFn && goldFn(input$) || Bacon.once(null)]))
     .map(([number, silver, gold]) => ({number, silver, gold}))
     .reduce([], (results, result) => results.concat(result))
-    .map(results => results.sort((a, b) => Number(a.number) - Number(b.number)))
+    .map(results => results.sort(numericCompare))
     .onValue(console.log);
