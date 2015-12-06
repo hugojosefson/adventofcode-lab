@@ -3,6 +3,7 @@ import path from 'path';
 import describeTestCases from '../lib/describe-test-cases';
 
 import silver from './silver';
+import gold from './gold';
 
 describe('06', () => {
     describeTestCases('silver', silver, [
@@ -25,5 +26,11 @@ describe('06', () => {
             999996
         ],
         [fs.readFileSync(path.join(__dirname, 'input'), 'utf8'), 377891, 'input']
-    ], 30000);
+    ], 60000);
+
+    describeTestCases('gold', gold, [
+        ['turn on 0,0 through 0,0', 1],
+        ['toggle 0,0 through 999,999', 2000000],
+        [fs.readFileSync(path.join(__dirname, 'input'), 'utf8'), 14110788, 'input']
+    ], 60000);
 });
