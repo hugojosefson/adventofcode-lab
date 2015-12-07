@@ -5,6 +5,7 @@ import describeSimpleTestCases from '../lib/describe-simple-test-cases';
 
 import jsExpression from './js-expression';
 import silver from './silver';
+import gold from './gold';
 
 describe.only('05', () => {
     describeSimpleTestCases('js-expression', jsExpression, [
@@ -22,5 +23,9 @@ describe.only('05', () => {
 
     describeTestCases('silver', silver, [
         [fs.readFileSync(path.join(__dirname, 'input'), 'utf8'), 46065, 'input']
+    ], 2000);
+
+    describeTestCases('gold', gold, [
+        [fs.readFileSync(path.join(__dirname, 'input'), 'utf8'), 14134, 'input']
     ], 2000);
 });
