@@ -5,7 +5,7 @@ import describeTestCases from '../lib/describe-test-cases';
 import silver from './silver';
 import gold from './gold';
 
-describe.only('08', () => {
+describe('08', () => {
     describeTestCases('silver', silver, [
         ['""', 2 - 0],
         ['"abc"', 5 - 3],
