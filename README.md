@@ -9,14 +9,14 @@ Having fun with Functional Reactive Programming using BaconJS.
 
 ## How to run
 
-    npm install
-    npm start -- <number(s)>
+    yarn
+    yarn start <number(s)>
     
 For example
 
-    npm start -- 1 2 3
+    yarn start 1 2 3
     
 ## Run tests
 
-    npm install
-    npm test
+    yarn
+    yarn test
