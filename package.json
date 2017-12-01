@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node -r @std/esm .",
     "test": "mocha --require @std/esm 20*/*/test.js",
+    "test:watch": "mocha --watch --require @std/esm 20*/*/test.js",
     "precommit": "lint-staged"
   },
   "lint-staged": {
