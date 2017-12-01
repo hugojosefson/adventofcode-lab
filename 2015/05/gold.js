@@ -1,6 +1,6 @@
 import Bacon from 'baconjs'
 
-import count from '../lib/count'
+import count from '../../lib/count'
 
 export default input$ => input$
     .flatMap(input => Bacon.fromArray(input.split('\n')))

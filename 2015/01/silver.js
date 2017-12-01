@@ -1,5 +1,5 @@
 import Bacon from 'baconjs'
-import sum from '../lib/sum'
+import sum from '../../lib/sum'
 
 export default input$ => input$
     .flatMap(input => Bacon.fromArray(input.split('')))

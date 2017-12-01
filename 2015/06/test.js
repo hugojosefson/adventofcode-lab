@@ -1,12 +1,12 @@
 /* eslint-env mocha */
 import fs from 'fs'
 import path from 'path'
-import describeTestCases from '../lib/describe-test-cases'
+import describeTestCases from '../../lib/describe-test-cases'
 
 import silver from './silver'
 import gold from './gold'
 
-describe.skip('06 - skipped because quite slow', () => {
+describe.skip('2015-12-06 - skipped because quite slow', () => {
   describeTestCases('silver', silver, [
         ['turn on 0,0 through 999,999', 1000000],
         ['toggle 0,0 through 999,0', 1000],

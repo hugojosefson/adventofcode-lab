@@ -1,14 +1,14 @@
 /* eslint-env mocha */
 import fs from 'fs'
 import path from 'path'
-import describeTestCases from '../lib/describe-test-cases'
-import describeSimpleTestCases from '../lib/describe-simple-test-cases'
+import describeTestCases from '../../lib/describe-test-cases'
+import describeSimpleTestCases from '../../lib/describe-simple-test-cases'
 
 import jsExpression from './js-expression'
 import silver from './silver'
 import gold from './gold'
 
-describe('07', () => {
+describe('2015-12-07', () => {
   describeSimpleTestCases('js-expression', jsExpression, [
         ['123', '123'],
         ['x', '_x()'],

@@ -1,10 +1,10 @@
 /* eslint-env mocha */
-import describeTestCases from '../lib/describe-test-cases'
+import describeTestCases from '../../lib/describe-test-cases'
 
 import silver from './silver'
 import gold from './gold'
 
-describe('03', () => {
+describe('2015-12-03', () => {
   describeTestCases('silver', silver, [
         ['>', 2],
         ['^>v<', 4],

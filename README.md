@@ -10,11 +10,11 @@ Having fun with Functional Reactive Programming using BaconJS.
 ## How to run
 
     yarn
-    yarn start <number(s)>
+    yarn start <year> <number(s)>
     
 For example
 
-    yarn start 1 2 3
+    yarn start 2015 1 2 3
     
 ## Run tests
 

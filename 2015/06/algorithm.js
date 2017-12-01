@@ -1,6 +1,6 @@
 import Bacon from 'baconjs'
 import _ from 'lodash'
-import numericCompare from '../lib/numeric-compare'
+import numericCompare from '../../lib/numeric-compare'
 
 const operateOnLights = (lights, [operation, x1, y1, x2, y2]) => {
   const [fromX, toX] = [x1, x2].sort(numericCompare)

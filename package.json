@@ -4,7 +4,7 @@
   "description": "Me doing the adventofcode.com exercises.",
   "scripts": {
     "start": "node -r @std/esm .",
-    "test": "mocha --require @std/esm */test.js",
+    "test": "mocha --require @std/esm 20*/*/test.js",
     "precommit": "lint-staged"
   },
   "lint-staged": {

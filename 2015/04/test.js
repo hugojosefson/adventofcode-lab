@@ -1,12 +1,12 @@
 /* eslint-env mocha */
 import fs from 'fs'
 import path from 'path'
-import describeTestCases from '../lib/describe-test-cases'
+import describeTestCases from '../../lib/describe-test-cases'
 
 import silver from './silver'
 import gold from './gold'
 
-describe.skip('04 - skipped because quite slow', () => {
+describe.skip('2015-12-04 - skipped because quite slow', () => {
   describeTestCases('silver', silver, [
         ['abcdef', 609043],
         ['pqrstuv', 1048970],

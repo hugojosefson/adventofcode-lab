@@ -1,7 +1,7 @@
 import Bacon from 'baconjs'
-import sum from '../lib/sum'
+import sum from '../../lib/sum'
 import areaOfBox from './area-of-box'
-import numericCompare from '../lib/numeric-compare'
+import numericCompare from '../../lib/numeric-compare'
 
 const OK_LINE = /\d+x\d+x\d+/
 

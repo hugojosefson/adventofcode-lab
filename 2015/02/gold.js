@@ -1,7 +1,7 @@
 import Bacon from 'baconjs'
-import sum from '../lib/sum'
+import sum from '../../lib/sum'
 import lengthOfRibbon from './length-of-ribbon'
-import numericCompare from '../lib/numeric-compare'
+import numericCompare from '../../lib/numeric-compare'
 
 const OK_LINE = /\d+x\d+x\d+/
 

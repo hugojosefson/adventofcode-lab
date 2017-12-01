@@ -1,12 +1,12 @@
 /* eslint-env mocha */
 import fs from 'fs'
 import path from 'path'
-import describeTestCases from '../lib/describe-test-cases'
+import describeTestCases from '../../lib/describe-test-cases'
 
 import silver from './silver'
 import gold from './gold'
 
-describe('05', () => {
+describe('2015-12-05', () => {
   describeTestCases('silver', silver, [
         ['ugknbfddgicrmopn', 1],
         ['aaa', 1],
