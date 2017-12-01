@@ -3,16 +3,14 @@
   "version": "1.0.0",
   "description": "Me doing the adventofcode.com exercises.",
   "scripts": {
-    "start": "babel-node .",
-    "test": "mocha --compilers js:babel-register */test.js"
+    "start": "node -r @std/esm .",
+    "test": "mocha --require @std/esm */test.js"
   },
   "keywords": [],
   "author": "Hugo Josefson <hugo@josefson.org>",
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
-    "babel": "^6.1.18",
-    "babel-cli": "^6.2.0",
-    "babel-preset-es2015": "^6.1.18",
+    "@std/esm": "^0.17.3",
     "baconjs": "^0.7.82",
     "eval": "^0.1.1",
     "lodash": "^3.10.1",
@@ -21,5 +19,9 @@
   "devDependencies": {
     "chai": "^3.4.1",
     "mocha": "^2.3.4"
+  },
+  "@std/esm": "cjs",
+  "engines": {
+    "node": ">=9"
   }
 }
