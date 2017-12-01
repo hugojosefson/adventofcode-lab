@@ -4,4 +4,4 @@ export default wireExpression => wireExpression
     .replace(/\bOR\b/g, '|')
     .replace(/\bLSHIFT\b/g, '<<')
     .replace(/\bRSHIFT\b/g, '>>')
-    .replace(/\bNOT\b/g, '~');
+    .replace(/\bNOT\b/g, '~')

@@ -1,7 +1,6 @@
-import Bacon from 'baconjs';
-import _ from 'lodash';
+import Bacon from 'baconjs'
 
-import count from '../lib/count';
+import count from '../lib/count'
 
 export default input$ => input$
     .flatMap(input => Bacon.fromArray(input.split('\n')))
@@ -11,4 +10,4 @@ export default input$ => input$
     .filter(line => !(/xy/).test(line))
     .filter(line => (/([a-z])\1/).test(line))
     .filter(line => (/.*[aeiou].*[aeiou].*[aeiou].*/).test(line))
-    .reduce(0, count);
+    .reduce(0, count)

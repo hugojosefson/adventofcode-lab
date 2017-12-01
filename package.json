@@ -4,9 +4,20 @@
   "description": "Me doing the adventofcode.com exercises.",
   "scripts": {
     "start": "node -r @std/esm .",
-    "test": "mocha --require @std/esm */test.js"
+    "test": "mocha --require @std/esm */test.js",
+    "precommit": "lint-staged"
   },
-  "keywords": [],
+  "lint-staged": {
+    "*.js": [
+      "standard --fix",
+      "git add"
+    ]
+  },
+  "keywords": [
+    "adventofcode",
+    "javascript",
+    "fp"
+  ],
   "author": "Hugo Josefson <hugo@josefson.org>",
   "license": "ISC",
   "dependencies": {
@@ -18,7 +29,10 @@
   },
   "devDependencies": {
     "chai": "^3.4.1",
-    "mocha": "^2.3.4"
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.0",
+    "mocha": "^2.3.4",
+    "standard": "^10.0.3"
   },
   "@std/esm": "cjs",
   "engines": {

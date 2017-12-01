@@ -1,10 +1,12 @@
-import describeTestCases from '../lib/describe-test-cases';
+/* eslint-env mocha */
 
-import silver from './silver';
-import gold from './gold';
+import describeTestCases from '../lib/describe-test-cases'
+
+import silver from './silver'
+import gold from './gold'
 
 describe('01', () => {
-    describeTestCases('silver', silver, [
+  describeTestCases('silver', silver, [
         ['(())', 0],
         ['()()', 0],
         ['(((', 3],
@@ -14,9 +16,9 @@ describe('01', () => {
         ['))(', -1],
         [')))', -3],
         [')())())', -3]
-    ]);
-    describeTestCases('gold', gold, [
+  ])
+  describeTestCases('gold', gold, [
         [')', 1],
         ['()())', 5]
-    ]);
-});
+  ])
+})
