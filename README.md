@@ -1,6 +1,6 @@
 # Advent of Code Lab
 
-Working through the [adventofcode.com](http://adventofcode.com/)
+Working through [adventofcode.com](https://adventofcode.com/)
 exercises, putting the answer to each exercise in this repo.
 
 Having fun with Functional Reactive Programming using BaconJS.
@@ -15,6 +15,7 @@ Having fun with Functional Reactive Programming using BaconJS.
 For example
 
     yarn start 2015 1 2 3
+    yarn start 2017 1
     
 ## Run tests
 
