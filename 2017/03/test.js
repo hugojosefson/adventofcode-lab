@@ -3,7 +3,7 @@
 import assert from 'assert'
 
 import describeTestCases from '../../lib/describe-test-cases'
-// import inputFile from '../../lib/input-file'
+import inputFile from '../../lib/input-file'
 
 import silver from './silver'
 import {
@@ -14,7 +14,7 @@ import {
   isMaxInSquare
 } from './common'
 
-// const input = inputFile(__dirname)
+const input = inputFile(__dirname)
 
 describe('2017-12-03', () => {
   describe('widthOfSquare', () => {
@@ -370,6 +370,8 @@ describe('2017-12-03', () => {
     [168, 11],
     [169, 12],
 
-    [1024, 31]
+    [1024, 31],
+
+    [input, 419, 'input']
   ].map(([input, expected]) => [String(input), expected]))
 })
