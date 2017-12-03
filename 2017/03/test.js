@@ -5,14 +5,14 @@ import assert from 'assert'
 import describeTestCases from '../../lib/describe-test-cases'
 import inputFile from '../../lib/input-file'
 
-import silver from './silver'
 import {
   widthOfSquare,
   snakeLengthSinceSquareCorner,
   snakeLengthSinceAnyCorner,
   movingTowardsMiddle,
-  isMaxInSquare
-} from './common'
+  isMaxInSquare,
+  default as silver
+} from './silver'
 
 const input = inputFile(__dirname)
 
