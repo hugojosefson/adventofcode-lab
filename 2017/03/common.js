@@ -41,8 +41,12 @@ export const onlyValueInStateAt = (state, pos) => directions => {
   return mustHavesHave && mustNotHavesAreEmpty
 }
 
-const calculateResult = ({calculateValue, state, pos, n}) => {
+export const calculateResult = ({calculateValue, state, pos, n, shouldStop = () => false}) => {
   while (n > 1) {
+    if (shouldStop({state, pos, n, value: calculateValue({state, pos, n})})) {
+      break
+    }
+
     const onlyValueAt = onlyValueInStateAt(state, pos)
 
     const mutateMoving = direction => {
@@ -88,18 +92,19 @@ const calculateResult = ({calculateValue, state, pos, n}) => {
       continue
     }
 
-    throw new Error(JSON.stringify({n, pos, value: calculateValue({state, pos}), state}, null, 2))
+    throw new Error(JSON.stringify({n, pos, value: calculateValue({state, pos, n}), state}, null, 2))
   }
 
-  return {state: {...state}, pos: {...pos}, n, value: calculateValue({state, pos})}
+  return {state, pos, n, value: calculateValue({state, pos, n})}
 }
 
 const initPos = {x: 0, y: 0}
 const initState = calculateValue => ({[pos2key(initPos)]: calculateValue({state: {}, pos: initPos})})
 
-export default ({calculateValue}) => n => calculateResult({
+export default ({calculateValue, shouldStop}) => n => calculateResult({
   calculateValue,
   state: initState(calculateValue),
   pos: initPos,
-  n
+  n,
+  shouldStop
 })

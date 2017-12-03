@@ -4,7 +4,7 @@ import describeTestCases from '../../lib/describe-test-cases'
 import inputFile from '../../lib/input-file'
 
 import silver from './silver'
-import gold from './gold'
+import {intermediate as intermediateGold, default as gold} from './gold'
 
 const input = inputFile(__dirname)
 
@@ -95,10 +95,10 @@ describe('2017-12-03', () => {
 
     [1024, 31],
 
-    [input, 419, 'input']
-  ].map(([input, expected]) => [String(input), expected]), 10000)
+    [input, 419, 'input', {skip: true}]
+  ].map(([input, expected, name, opts]) => [String(input), expected, name, opts]), 10000)
 
-  describeTestCases('gold', gold, [
+  describeTestCases('intermediateGold', intermediateGold, [
     [1, 1],
     [2, 1],
     [3, 2],
@@ -124,4 +124,8 @@ describe('2017-12-03', () => {
     [22, 747],
     [23, 806]
   ].map(([input, expected]) => [String(input), expected]))
+
+  describeTestCases('gold', gold, [
+    [input, 295229, 'input']
+  ])
 })
