@@ -20,6 +20,7 @@ describe('2017-12-04', () => {
     ['abcde xyz ecdab', 0],
     ['a ab abc abd abf abj', 1],
     ['iiii oiii ooii oooi oooo', 1],
-    ['oiii ioii iioi iiio', 0]
+    ['oiii ioii iioi iiio', 0],
+    [input, 208, 'input']
   ])
 })
