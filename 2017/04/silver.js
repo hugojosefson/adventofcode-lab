@@ -1,15 +1,15 @@
 import common from './common'
 
-const isValidPassphrase = line => line
+export const hasOnlyUniqueWords = line => line
   .split(' ')
   .reduce((acc, word) => {
-    if (acc[word]) {
+    if (acc.words[word]) {
       acc.valid = false
     } else {
-      acc[word] = true
+      acc.words[word] = true
     }
     return acc
   }, {words: {}, valid: true})
   .valid
 
-export default common(isValidPassphrase)
+export default common(hasOnlyUniqueWords)
