@@ -1,4 +1,4 @@
-import Bacon from 'baconjs'
+import common from './common'
 
 const LOOP_DETECTOR = 10 * 1000 * 1000
 
@@ -21,9 +21,4 @@ const cpu = jumpInstructions => {
   return steps
 }
 
-export default input$ => input$
-  .map(input => input.split('\n'))
-  .map(lines => lines.filter(line => line.length))
-  .map(lines => lines.map(Number))
-  .map(cpu)
-  .flatMap(result => Bacon.once(result))
+export default common(cpu)
