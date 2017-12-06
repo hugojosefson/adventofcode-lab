@@ -33,11 +33,11 @@ describe('2017-12-06', () => {
   describeTestCases('silver', silver, [
     [TEST_DATA, 5],
     ['0 5 10 0 11 14 13 4 11 8 8 7 1 4 12 11', 7864],
-    [input, 7864]
+    [input, 7864, 'input']
   ])
   describeTestCases('gold', gold, [
     [TEST_DATA, 4],
     ['0 5 10 0 11 14 13 4 11 8 8 7 1 4 12 11', 1695],
-    [input, 1695]
+    [input, 1695, 'input']
   ])
 })
