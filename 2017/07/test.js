@@ -1,8 +1,11 @@
 /* eslint-env mocha */
 
 import describeTestCases from '../../lib/describe-test-cases'
+import inputFile from '../../lib/input-file'
 
 import silver from './silver'
+
+const input = inputFile(__dirname)
 
 describe('2017-12-07', () => {
   describeTestCases('silver', silver, [
@@ -20,6 +23,7 @@ jptl (61)
 ugml (68) -> gyxo, ebii, jptl
 gyxo (61)
 cntj (57)    
-    `, 'tknk']
+    `, 'tknk'],
+    [input, 'svugo', 'input']
   ])
 })
