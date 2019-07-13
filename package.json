@@ -1,11 +1,12 @@
 {
   "name": "adventofcode",
   "version": "1.0.0",
+  "type": "module",
   "description": "Me doing the adventofcode.com exercises.",
   "scripts": {
     "start": "node -r esm .",
-    "test": "mocha --require esm --require mocha-clean 20*/*/test.js",
-    "test:watch": "mocha --watch --require esm --require mocha-clean 20*/*/test.js",
+    "test": "mjs-mocha --es-module-specifier-resolution=node --require mocha-clean 20*/*/test.js",
+    "test:watch": "mjs-mocha --es-module-specifier-resolution=node --require mocha-clean --watch 20*/*/test.js",
     "test:watch:top": "watch --color 'yarn test --colors'",
     "precommit": "lint-staged"
   },
@@ -24,7 +25,6 @@
   "license": "ISC",
   "dependencies": {
     "baconjs": "^0.7.82",
-    "esm": "^3.2.25",
     "eval": "^0.1.1",
     "lodash": "^3.10.1",
     "md5": "^2.0.0"
@@ -33,11 +33,12 @@
     "chai": "^3.4.1",
     "husky": "^0.14.3",
     "lint-staged": "^6.0.0",
+    "mjs-mocha": "^3.0.0",
     "mocha": "^2.3.4",
     "mocha-clean": "^1.0.0",
     "standard": "^10.0.3"
   },
   "engines": {
-    "node": ">=9"
+    "node": ">=12"
   }
 }
