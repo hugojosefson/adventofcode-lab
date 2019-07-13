@@ -16,5 +16,5 @@ export default input$ => input$
       return [other, [newX, newY], houses]
     })
     .map(([[x, y], other, houses]) => houses)
-    .map(_.pairs)
+    .map(_.toPairs)
     .map('.length')
