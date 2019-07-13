@@ -4,12 +4,9 @@ import describeTestCases from '../../lib/describe-test-cases'
 import inputFile from '../../lib/input-file'
 
 import silver from './silver'
+import gold from './gold'
 
-const input = inputFile(__dirname)
-
-describe('2017-12-07', () => {
-  describeTestCases('silver', silver, [
-    [`
+const PUZZLE_INPUT = `
 pbga (66)
 xhth (57)
 ebii (61)
@@ -23,7 +20,15 @@ jptl (61)
 ugml (68) -> gyxo, ebii, jptl
 gyxo (61)
 cntj (57)    
-    `, 'tknk'],
+    `
+const input = inputFile(__dirname)
+
+describe('2017-12-07', () => {
+  describeTestCases('silver', silver, [
+    [PUZZLE_INPUT, 'tknk'],
     [input, 'svugo', 'input']
+  ])
+  describeTestCases.skip('gold', gold, [
+    [PUZZLE_INPUT, {key: 'ugml', weightChange: -8}]
   ])
 })

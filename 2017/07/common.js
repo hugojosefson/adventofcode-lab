@@ -3,9 +3,12 @@ const parseChildrenStringToChildren = childrenString => (childrenString && child
 
 export const parseLineToNode = s => {
   // eslint-disable-next-line no-unused-vars
-  const [_1, key, weight, _2, childrenString] = s.match(LINE_REGEX)
-  const children = parseChildrenStringToChildren(childrenString)
-  return {key, children}
+  const [_1, key, weightString, _2, childrenString] = s.match(LINE_REGEX)
+
+  const childKeys = parseChildrenStringToChildren(childrenString)
+  const weight = Number.parseInt(weightString, 10)
+
+  return {key, childKeys, weight}
 }
 
 const ensureNodeExistsInTree = tree => node => {
@@ -20,7 +23,7 @@ export const joinToTree = (tree, currentNode) => {
   const ensureNodeExists = ensureNodeExistsInTree(tree)
   ensureNodeExists(currentNode)
 
-  tree[currentNode.key].children.forEach(childKey => {
+  tree[currentNode.key].childKeys.forEach(childKey => {
     ensureNodeExists({key: childKey, parent: currentNode.key})
   })
 
