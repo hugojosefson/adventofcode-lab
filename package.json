@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Me doing the adventofcode.com exercises.",
   "scripts": {
-    "start": "node -r @std/esm .",
-    "test": "mocha --require @std/esm --require mocha-clean 20*/*/test.js",
-    "test:watch": "mocha --watch --require @std/esm --require mocha-clean 20*/*/test.js",
+    "start": "node -r esm .",
+    "test": "mocha --require esm --require mocha-clean 20*/*/test.js",
+    "test:watch": "mocha --watch --require esm --require mocha-clean 20*/*/test.js",
     "test:watch:top": "watch --color 'yarn test --colors'",
     "precommit": "lint-staged"
   },
@@ -23,8 +23,8 @@
   "author": "Hugo Josefson <hugo@josefson.org>",
   "license": "ISC",
   "dependencies": {
-    "@std/esm": "^0.17.3",
     "baconjs": "^0.7.82",
+    "esm": "^3.2.25",
     "eval": "^0.1.1",
     "lodash": "^3.10.1",
     "md5": "^2.0.0"
@@ -37,7 +37,6 @@
     "mocha-clean": "^1.0.0",
     "standard": "^10.0.3"
   },
-  "@std/esm": "cjs",
   "engines": {
     "node": ">=9"
   }

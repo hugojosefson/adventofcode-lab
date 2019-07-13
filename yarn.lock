@@ -2,10 +2,6 @@
 # yarn lockfile v1
 
 
-"@std/esm@^0.17.3":
-  version "0.17.3"
-  resolved "https://registry.yarnpkg.com/@std/esm/-/esm-0.17.3.tgz#c3cff9dcfa28966a567dbb27207317ea70ac6fb0"
-
 acorn-jsx@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-3.0.1.tgz#afdf9488fb1ecefc8348f6fb22f464e32a58b36b"
@@ -554,6 +550,11 @@ eslint@~3.19.0:
     table "^3.7.8"
     text-table "~0.2.0"
     user-home "^2.0.0"
+
+esm@^3.2.25:
+  version "3.2.25"
+  resolved "https://registry.yarnpkg.com/esm/-/esm-3.2.25.tgz#342c18c29d56157688ba5ce31f8431fbb795cc10"
+  integrity sha512-U1suiZ2oDVWv4zPO56S0NcR5QriEahGtdN2OR6FiOG4WJvcjBVFB0qI4+eKoWFH483PKGuLuu6V8Z4T5g63UVA==
 
 espree@^3.4.0:
   version "3.5.2"
