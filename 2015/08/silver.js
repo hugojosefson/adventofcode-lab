@@ -1,9 +1,9 @@
-import Bacon from 'baconjs'
+import { fromArray } from 'baconjs/dist/Bacon.noAssert'
 
 import sum from '../../lib/sum'
 
 export default input$ => input$
-  .flatMap(input => Bacon.fromArray(input.split('\n')))
+  .flatMap(input => fromArray(input.split('\n')))
   .map(line => [line.length, line.match(/^"(.*?)"$/)])
   .filter(([originalLength, matches]) => !!matches)
   .map(([originalLength, matches]) => [originalLength, matches.splice(1)])

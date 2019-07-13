@@ -1,11 +1,12 @@
-import Bacon from 'baconjs'
+import { fromArray } from 'baconjs/dist/Bacon.noAssert'
+
 import _ from 'lodash'
 import _eval from 'eval'
 
 import jsExpression from './js-expression'
 
 export default input$ => input$
-  .flatMap(input => Bacon.fromArray(input.split('\n')))
+  .flatMap(input => fromArray(input.split('\n')))
   .map(line => line.match(/^(.+?)->(.+)$/))
   .filter(_.identity)
   .map(matches => matches.splice(1))

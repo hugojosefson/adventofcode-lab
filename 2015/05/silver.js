@@ -1,9 +1,9 @@
-import Bacon from 'baconjs'
+import { fromArray } from 'baconjs/dist/Bacon.noAssert'
 
 import count from '../../lib/count'
 
 export default input$ => input$
-  .flatMap(input => Bacon.fromArray(input.split('\n')))
+  .flatMap(input => fromArray(input.split('\n')))
   .filter(line => !(/ab/).test(line))
   .filter(line => !(/cd/).test(line))
   .filter(line => !(/pq/).test(line))

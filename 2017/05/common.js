@@ -1,4 +1,4 @@
-import Bacon from 'baconjs'
+import { once } from 'baconjs/dist/Bacon.noAssert'
 
 export default cpu =>
   input$ => input$
@@ -6,4 +6,4 @@ export default cpu =>
     .map(lines => lines.filter(line => line.length))
     .map(lines => lines.map(Number))
     .map(cpu)
-    .flatMap(result => Bacon.once(result))
+    .flatMap(result => once(result))

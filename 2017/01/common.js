@@ -1,4 +1,5 @@
-import Bacon from 'baconjs'
+import { fromArray } from 'baconjs/dist/Bacon.noAssert'
+
 import sum from '../../lib/sum'
 
 export default offsetCalculator =>
@@ -9,7 +10,7 @@ export default offsetCalculator =>
       pairs.push([current, array[offsetCalculator(index, array) % array.length]])
       return pairs
     }, []))
-    .flatMap(pairs => Bacon.fromArray(pairs))
+    .flatMap(pairs => fromArray(pairs))
     .filter(([a, b]) => a === b)
     .map(([a]) => a)
     .filter(a => !!a)

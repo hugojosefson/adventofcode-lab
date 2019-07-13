@@ -1,4 +1,5 @@
-import Bacon from 'baconjs'
+import { once } from 'baconjs/dist/Bacon.noAssert'
+
 import {
   LINE_REGEX,
   parseLineToNode,
@@ -13,4 +14,4 @@ export default input$ => input$
   .map(ss => ss.map(parseLineToNode))
   .map(ss => ss.reduce(joinToTree, {}))
   .map(tree => getRootKey(tree))
-  .flatMap(result => Bacon.once(result))
+  .flatMap(result => once(result))

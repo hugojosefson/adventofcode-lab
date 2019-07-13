@@ -1,4 +1,4 @@
-import Bacon from 'baconjs'
+import { once } from 'baconjs/dist/Bacon.noAssert'
 
 const LOOP_DETECTOR = 10 * 1000 * 1000
 export const SEPARATOR = new RegExp('[^0-9]+')
@@ -50,4 +50,4 @@ export default input$ => input$
   .map(ss => ss.filter(s => s.length))
   .map(s => s.map(x => parseInt(x, 10)))
   .map(reallocate)
-  .flatMap(result => Bacon.once(result))
+  .flatMap(result => once(result))

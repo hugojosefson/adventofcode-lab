@@ -1,4 +1,4 @@
-import Bacon from 'baconjs'
+import { once } from 'baconjs/dist/Bacon.noAssert'
 
 import sum from '../../lib/sum'
 
@@ -88,4 +88,4 @@ export default input$ => input$
   .map(ss => ss.map(parseLineToNode))
   .map(ss => ss.reduce(joinToTree, {}))
   .map(tree => gold(tree))
-  .flatMap(result => Bacon.once(result))
+  .flatMap(result => once(result))

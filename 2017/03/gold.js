@@ -1,4 +1,4 @@
-import Bacon from 'baconjs'
+import { once } from 'baconjs/dist/Bacon.noAssert'
 
 import common, {
   FOUR_DIRECTIONS,
@@ -21,7 +21,7 @@ export const intermediate = input$ => input$
     calculateValue: calculateValueGold
   }))
   .map(({ value }) => value)
-  .flatMap(result => Bacon.once(result))
+  .flatMap(result => once(result))
 
 export default input$ => input$
   .map(Number)
@@ -30,4 +30,4 @@ export default input$ => input$
     shouldStop: ({ value }) => value > input
   })(Number.MAX_SAFE_INTEGER))
   .map(({ value }) => value)
-  .flatMap(result => Bacon.once(result))
+  .flatMap(result => once(result))

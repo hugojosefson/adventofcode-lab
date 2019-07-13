@@ -7,7 +7,7 @@
     "test": "run-s lint-fix mocha",
     "mocha": "mocha --require esm --require mocha-clean 20*/*/test.js",
     "mocha:watch": "mocha --watch --require esm --require mocha-clean 20*/*/test.js",
-    "mocha:watch:top": "watch --color 'yarn test --colors'",
+    "mocha:watch:top": "watch --color 'yarn mocha --colors'",
     "lint": "standard --verbose",
     "lint-fix": "standard --verbose --fix",
     "precommit": "lint-staged"
@@ -26,16 +26,16 @@
   "author": "Hugo Josefson <hugo@josefson.org>",
   "license": "ISC",
   "dependencies": {
-    "baconjs": "^0.7.82",
+    "baconjs": "^3.0.6",
     "esm": "^3.2.25",
-    "eval": "^0.1.1",
-    "lodash": "^4.17.13",
+    "eval": "^0.1.4",
+    "lodash": "^4.17.14",
     "md5": "^2.0.0"
   },
   "devDependencies": {
-    "chai": "^3.4.1",
-    "husky": "^0.14.3",
-    "lint-staged": "^6.0.0",
+    "chai": "^4.2.0",
+    "husky": "^3.0.0",
+    "lint-staged": "^9.2.0",
     "mocha": "^6.1.4",
     "mocha-clean": "^1.0.0",
     "npm-run-all": "^4.1.5",

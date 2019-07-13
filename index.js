@@ -2,7 +2,7 @@
 
 import path from 'path'
 import { readFile } from 'fs'
-import Bacon from 'baconjs'
+import { constant, fromArray, fromNodeCallback, zipAsArray, once } from 'baconjs/dist/Bacon.noAssert'
 
 import safeRequire from './lib/safe-require'
 import formatWithTwoDigits from './lib/format-with-two-digits'
@@ -10,9 +10,9 @@ import numericCompareProperty from './lib/numeric-compare-property'
 
 const year = process.argv[2]
 
-Bacon.constant(process)
+constant(process)
   .map(process => process.argv.splice(3))
-  .flatMap(args => Bacon.fromArray(args))
+  .flatMap(args => fromArray(args))
   .map(Number)
   .map(formatWithTwoDigits)
   .map(number => ({
@@ -25,13 +25,13 @@ Bacon.constant(process)
     number,
     silverFn: silverMod && silverMod.default,
     goldFn: goldMod && goldMod.default,
-    input$: Bacon.fromNodeCallback(readFile, inputFilename, 'utf-8')
+    input$: fromNodeCallback(readFile, inputFilename, 'utf-8')
   }))
   .flatMap(
-    ({ number, silverFn, goldFn, input$ }) => Bacon.zipAsArray([
-      Bacon.once(number),
-      (silverFn && silverFn(input$)) || Bacon.once(null),
-      (goldFn && goldFn(input$)) || Bacon.once(null)
+    ({ number, silverFn, goldFn, input$ }) => zipAsArray([
+      once(number),
+      (silverFn && silverFn(input$)) || once(null),
+      (goldFn && goldFn(input$)) || once(null)
     ])
   )
   .map(([number, silver, gold]) => ({ year, number, silver, gold }))

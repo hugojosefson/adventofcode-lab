@@ -1,8 +1,9 @@
-import Bacon from 'baconjs'
+import { fromArray } from 'baconjs/dist/Bacon.noAssert'
+
 import _ from 'lodash'
 
 export default input$ => input$
-  .flatMap(input => Bacon.fromArray(input.split('')))
+  .flatMap(input => fromArray(input.split('')))
   .map(char => {
     if (char === '^') return { x: 0, y: 1 }
     if (char === 'v') return { x: 0, y: -1 }

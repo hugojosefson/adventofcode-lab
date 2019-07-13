@@ -1,10 +1,11 @@
-import Bacon from 'baconjs'
+import { fromArray } from 'baconjs/dist/Bacon.noAssert'
+
 import _ from 'lodash'
 
 import sum from '../../lib/sum'
 
 export default input$ => input$
-  .flatMap(input => Bacon.fromArray(input.split('\n')))
+  .flatMap(input => fromArray(input.split('\n')))
   .filter(_.identity)
   .map(line => [line.length, line])
   .map(([originalLength, s]) => [originalLength, s.replace(/\\/g, '\\\\')])

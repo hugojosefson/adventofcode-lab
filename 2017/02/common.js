@@ -1,4 +1,5 @@
-import Bacon from 'baconjs'
+import { fromArray } from 'baconjs/dist/Bacon.noAssert'
+
 import sum from '../../lib/sum'
 
 const TABS_OR_SPACES = /[ \t]+/g
@@ -10,5 +11,5 @@ export default rowChecksum =>
     .map(rowStrings => rowStrings.map(rowString => rowString.split(TABS_OR_SPACES)))
     .map(rowsOfStringArray => rowsOfStringArray.map(stringArray => stringArray.map(Number)))
     .map(rowsOfNumberArray => rowsOfNumberArray.map(rowChecksum))
-    .flatMap(checksums => Bacon.fromArray(checksums))
+    .flatMap(checksums => fromArray(checksums))
     .reduce(0, sum)

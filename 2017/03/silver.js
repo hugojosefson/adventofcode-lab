@@ -1,4 +1,5 @@
-import Bacon from 'baconjs'
+import { once } from 'baconjs/dist/Bacon.noAssert'
+
 const { sqrt, floor, pow } = Math
 
 export const widthOfSquare = n => (floor(sqrt(n) / 2 + 0.5) - 1) * 2 + 1
@@ -25,4 +26,4 @@ const taxiDistance = n => {
 export default input$ => input$
   .map(Number)
   .map(taxiDistance)
-  .flatMap(result => Bacon.once(result))
+  .flatMap(result => once(result))
