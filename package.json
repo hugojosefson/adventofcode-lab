@@ -4,9 +4,12 @@
   "description": "Me doing the adventofcode.com exercises.",
   "scripts": {
     "start": "node -r esm .",
-    "test": "mocha --require esm --require mocha-clean 20*/*/test.js",
-    "test:watch": "mocha --watch --require esm --require mocha-clean 20*/*/test.js",
-    "test:watch:top": "watch --color 'yarn test --colors'",
+    "test": "run-s lint-fix mocha",
+    "mocha": "mocha --require esm --require mocha-clean 20*/*/test.js",
+    "mocha:watch": "mocha --watch --require esm --require mocha-clean 20*/*/test.js",
+    "mocha:watch:top": "watch --color 'yarn test --colors'",
+    "lint": "standard --verbose",
+    "lint-fix": "standard --verbose --fix",
     "precommit": "lint-staged"
   },
   "lint-staged": {
@@ -35,7 +38,8 @@
     "lint-staged": "^6.0.0",
     "mocha": "^6.1.4",
     "mocha-clean": "^1.0.0",
-    "standard": "^10.0.3"
+    "npm-run-all": "^4.1.5",
+    "standard": "^13.0.2"
   },
   "engines": {
     "node": ">=9"

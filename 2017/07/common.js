@@ -8,11 +8,11 @@ export const parseLineToNode = s => {
   const childKeys = parseChildrenStringToChildren(childrenString)
   const weight = Number.parseInt(weightString, 10)
 
-  return {key, childKeys, weight}
+  return { key, childKeys, weight }
 }
 
 const ensureNodeExistsInTree = tree => node => {
-  if (tree.hasOwnProperty(node.key)) {
+  if (Object.prototype.hasOwnProperty.call(tree, node.key)) {
     Object.assign(tree[node.key], node)
   } else {
     tree[node.key] = node
@@ -24,7 +24,7 @@ export const joinToTree = (tree, currentNode) => {
   ensureNodeExists(currentNode)
 
   tree[currentNode.key].childKeys.forEach(childKey => {
-    ensureNodeExists({key: childKey, parent: currentNode.key})
+    ensureNodeExists({ key: childKey, parent: currentNode.key })
   })
 
   return tree

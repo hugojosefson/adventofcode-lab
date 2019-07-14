@@ -10,7 +10,7 @@ export const indexWithMaxValue = arr => arr
       max.index = currIndex
     }
     return max
-  }, {value: arr[0], index: 0}).index
+  }, { value: arr[0], index: 0 }).index
 
 const distribute = (banks, index) => {
   let value = banks[index]

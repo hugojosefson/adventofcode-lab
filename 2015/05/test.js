@@ -8,21 +8,21 @@ import gold from './gold'
 
 describe('2015-12-05', () => {
   describeTestCases('silver', silver, [
-        ['ugknbfddgicrmopn', 1],
-        ['aaa', 1],
-        ['jchzalrnumimnmhp', 0],
-        ['haegwjzuvuyypxyu', 0],
-        ['dvszwmarrgswjxmb', 0],
-        ['aquqoqiqeqyqssf', 1],
-        ['aqiqeqssf', 1],
-        ['aqqeqssf', 0],
-        ['aquqoqiqeqyqsf', 0],
-        [fs.readFileSync(path.join(__dirname, 'input'), 'utf8'), 258, 'input']
+    ['ugknbfddgicrmopn', 1],
+    ['aaa', 1],
+    ['jchzalrnumimnmhp', 0],
+    ['haegwjzuvuyypxyu', 0],
+    ['dvszwmarrgswjxmb', 0],
+    ['aquqoqiqeqyqssf', 1],
+    ['aqiqeqssf', 1],
+    ['aqqeqssf', 0],
+    ['aquqoqiqeqyqsf', 0],
+    [fs.readFileSync(path.join(__dirname, 'input'), 'utf8'), 258, 'input']
   ])
   describeTestCases('gold', gold, [
-        ['qjhvhtzxzqqjkmpb', 1],
-        ['xxyxx', 1],
-        ['uurcxstgmygtbstg', 0],
-        ['ieodomkazucvgmuy', 0]
+    ['qjhvhtzxzqqjkmpb', 1],
+    ['xxyxx', 1],
+    ['uurcxstgmygtbstg', 0],
+    ['ieodomkazucvgmuy', 0]
   ])
 })

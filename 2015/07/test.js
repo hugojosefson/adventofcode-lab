@@ -10,23 +10,23 @@ import gold from './gold'
 
 describe('2015-12-07', () => {
   describeSimpleTestCases('js-expression', jsExpression, [
-        ['123', '123'],
-        ['x', '_x()'],
-        ['xy', '_xy()'],
-        ['x yd', '_x() _yd()'],
-        ['x AND y', '_x() & _y()'],
-        ['x OR y', '_x() | _y()'],
-        ['x RSHIFT 2', '_x() >> 2'],
-        ['x RSHIFT y', '_x() >> _y()'],
-        ['x LSHIFT 13', '_x() << 13'],
-        ['NOT x', '~ _x()']
+    ['123', '123'],
+    ['x', '_x()'],
+    ['xy', '_xy()'],
+    ['x yd', '_x() _yd()'],
+    ['x AND y', '_x() & _y()'],
+    ['x OR y', '_x() | _y()'],
+    ['x RSHIFT 2', '_x() >> 2'],
+    ['x RSHIFT y', '_x() >> _y()'],
+    ['x LSHIFT 13', '_x() << 13'],
+    ['NOT x', '~ _x()']
   ])
 
   describeTestCases('silver', silver, [
-        [fs.readFileSync(path.join(__dirname, 'input'), 'utf8'), 46065, 'input']
+    [fs.readFileSync(path.join(__dirname, 'input'), 'utf8'), 46065, 'input']
   ])
 
   describeTestCases('gold', gold, [
-        [fs.readFileSync(path.join(__dirname, 'input'), 'utf8'), 14134, 'input']
+    [fs.readFileSync(path.join(__dirname, 'input'), 'utf8'), 14134, 'input']
   ])
 })

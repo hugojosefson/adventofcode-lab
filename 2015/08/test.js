@@ -8,10 +8,10 @@ import gold from './gold'
 
 describe('2015-12-08', () => {
   describeTestCases('silver', silver, [
-        ['""', 2 - 0],
-        ['"abc"', 5 - 3],
-        ['"aaa\\"aaa"', 10 - 7],
-        ['"\\x27"', 6 - 1],
+    ['""', 2 - 0],
+    ['"abc"', 5 - 3],
+    ['"aaa\\"aaa"', 10 - 7],
+    ['"\\x27"', 6 - 1],
     [
       [
         '""',
@@ -21,14 +21,14 @@ describe('2015-12-08', () => {
       ].join('\n'),
       12
     ],
-        [fs.readFileSync(path.join(__dirname, 'input'), 'utf8'), 1371, 'input']
+    [fs.readFileSync(path.join(__dirname, 'input'), 'utf8'), 1371, 'input']
   ])
 
   describeTestCases('gold', gold, [
-        ['""', 6 - 2],
-        ['"abc"', 9 - 5],
-        ['"aaa\\"aaa"', 16 - 10],
-        ['"\\x27"', 11 - 6],
+    ['""', 6 - 2],
+    ['"abc"', 9 - 5],
+    ['"aaa\\"aaa"', 16 - 10],
+    ['"\\x27"', 11 - 6],
     [
       [
         '""',

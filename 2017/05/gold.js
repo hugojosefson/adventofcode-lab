@@ -5,7 +5,7 @@ const LOOP_DETECTOR = 100 * 1000 * 1000
 const cpu = jumpInstructions => {
   let ip = 0
   let steps = 0
-  let upperBound = jumpInstructions.length
+  const upperBound = jumpInstructions.length
   while (ip < upperBound) {
     const jumpInstruction = jumpInstructions[ip]
     if (jumpInstruction >= 3) {

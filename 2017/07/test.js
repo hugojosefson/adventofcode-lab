@@ -29,6 +29,6 @@ describe('2017-12-07', () => {
     [input, 'svugo', 'input']
   ])
   describeTestCases.skip('gold', gold, [
-    [PUZZLE_INPUT, {key: 'ugml', weightChange: -8}]
+    [PUZZLE_INPUT, { key: 'ugml', weightChange: -8 }]
   ])
 })

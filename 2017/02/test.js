@@ -5,12 +5,12 @@ import assert from 'assert'
 import describeTestCases from '../../lib/describe-test-cases'
 import inputFile from '../../lib/input-file'
 
-import {
+import gold, {
   evenlyDivisible,
   evenDivisor,
-  evenQuotient,
-  default as gold
+  evenQuotient
 } from './gold'
+
 import silver from './silver'
 
 const input = inputFile(__dirname)
@@ -23,7 +23,7 @@ describe('2017-12-02', () => {
       [[6, 3], true],
       [[2, 3], false],
       [[2, 4], false]
-    ].forEach(([[a, b], expected]) => it(`evenlyDivisible(${a}, ${b}) === ${expected}`, () => assert.equal(evenlyDivisible(a, b), expected)))
+    ].forEach(([[a, b], expected]) => it(`evenlyDivisible(${a}, ${b}) === ${expected}`, () => assert.strictEqual(evenlyDivisible(a, b), expected)))
   })
 
   describe('evenDivisor', () => {
@@ -36,7 +36,7 @@ describe('2017-12-02', () => {
       [[2, 2], false],
       [[4, 4], false],
       [[3, 3], false]
-    ].forEach(([[a, b], expected]) => it(`evenDivisor(${a})(${b}) === ${expected}`, () => assert.equal(evenDivisor(a)(b), expected)))
+    ].forEach(([[a, b], expected]) => it(`evenDivisor(${a})(${b}) === ${expected}`, () => assert.strictEqual(evenDivisor(a)(b), expected)))
   })
 
   describe('evenQuotient', () => {
@@ -44,7 +44,7 @@ describe('2017-12-02', () => {
       [[5, 9, 2, 8], 4],
       [[9, 4, 7, 3], 3],
       [[2, 4, 6, 8], 2]
-    ].forEach(([row, expected]) => it(`evenQuotient(${row}) === ${expected}`, () => assert.equal(evenQuotient(row), expected)))
+    ].forEach(([row, expected]) => it(`evenQuotient(${row}) === ${expected}`, () => assert.strictEqual(evenQuotient(row), expected)))
   })
   describeTestCases('silver', silver, [
     [`5 1 9 5

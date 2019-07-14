@@ -9,7 +9,7 @@ export const hasOnlyUniqueWords = line => line
       acc.words[word] = true
     }
     return acc
-  }, {words: {}, valid: true})
+  }, { words: {}, valid: true })
   .valid
 
 export default common(hasOnlyUniqueWords)

@@ -1,6 +1,6 @@
 import common from './common'
 import both from '../../lib/both'
-import {hasOnlyUniqueWords} from './silver'
+import { hasOnlyUniqueWords } from './silver'
 
 const sortWord = word => word.split('').sort().join('')
 
@@ -14,7 +14,7 @@ const hasOnlyUnanagramableWords = line => line
       acc.words[sortedWord] = true
     }
     return acc
-  }, {words: {}, valid: true})
+  }, { words: {}, valid: true })
   .valid
 
 const isValidPassphrase = both(hasOnlyUniqueWords)(hasOnlyUnanagramableWords)

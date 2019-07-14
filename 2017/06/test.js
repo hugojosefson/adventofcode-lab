@@ -1,15 +1,15 @@
 /* eslint-env mocha */
 
-import {deepEqual} from 'assert'
+import { deepStrictEqual } from 'assert'
 import describeTestCases from '../../lib/describe-test-cases'
 import s from '../../lib/s'
 import inputFile from '../../lib/input-file'
 
-import {
+import silver, {
   SEPARATOR,
-  indexWithMaxValue,
-  default as silver
+  indexWithMaxValue
 } from './silver'
+
 import gold from './gold'
 
 const TEST_DATA = '0, 2, 7, and 0'
@@ -18,7 +18,7 @@ const input = inputFile(__dirname)
 describe('2017-12-06', () => {
   describe('SEPARATOR', () => {
     it('separates numbers', () => {
-      deepEqual(TEST_DATA.split(SEPARATOR), ['0', '2', '7', '0'])
+      deepStrictEqual(TEST_DATA.split(SEPARATOR), ['0', '2', '7', '0'])
     })
   })
   describe('indexWithMaxValue', () => {
@@ -27,7 +27,7 @@ describe('2017-12-06', () => {
       [[3, 2, 3], 0],
       [[0, 2, 7, 0], 2]
     ].forEach(([input, expected]) => {
-      it(`${s(input)} => ${expected}`, () => deepEqual(indexWithMaxValue(input), expected))
+      it(`${s(input)} => ${expected}`, () => deepStrictEqual(indexWithMaxValue(input), expected))
     })
   })
   describeTestCases('silver', silver, [

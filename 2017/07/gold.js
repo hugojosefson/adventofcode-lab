@@ -34,7 +34,7 @@ const findDifferingProp = propName => arr => {
   const propValues = arr.map(item => item[propName])
 
   const propValueCounts = propValues.reduce((counts, propValue) => {
-    if (!counts.hasOwnProperty(propValue)) {
+    if (!Object.prototype.hasOwnProperty.call(counts, propValue)) {
       counts[propValue] = 0
     }
     counts[propValue]++
@@ -46,7 +46,7 @@ const findDifferingProp = propName => arr => {
     return undefined
   }
 
-// eslint-disable-next-line no-unused-vars, no-empty-pattern
+  // eslint-disable-next-line no-unused-vars, no-empty-pattern
   const differingIndex = propValueCounts.map(({}, index) => {})
 }
 
@@ -58,19 +58,19 @@ const findUnbalancedNodeKeyInTree = tree => {
     const totalWeights = node.childKeys.map(totalWeightOfNode)
     const firstWeight = totalWeights[0]
     const differentWeights = totalWeights
-      .map((weight, index) => ({weight, index}))
-      .filter(({weight}) => weight !== firstWeight)
+      .map((weight, index) => ({ weight, index }))
+      .filter(({ weight }) => weight !== firstWeight)
 
     if (node.childKeys < 2 || differentWeights.length === 0) {
       return undefined
     }
 
     if (differentWeights.length === 1) {
-      const {index} = differentWeights[0]
-      return {key: node.childKeys[index], weightChange: tree[node.childKeys[index]].weight - differentWeights[0]}
+      const { index } = differentWeights[0]
+      return { key: node.childKeys[index], weightChange: tree[node.childKeys[index]].weight - differentWeights[0] }
     }
 
-    return {key: node.childKeys[0], weightChange: tree[node.childKeys[0]].weight - differentWeights[1]}
+    return { key: node.childKeys[0], weightChange: tree[node.childKeys[0]].weight - differentWeights[1] }
   }
 
   return findUnbalancedNodeKey

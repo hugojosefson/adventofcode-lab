@@ -8,12 +8,12 @@ import gold from './gold'
 
 describe.skip('2015-12-04 - skipped because quite slow', () => {
   describeTestCases('silver', silver, [
-        ['abcdef', 609043],
-        ['pqrstuv', 1048970],
-        [fs.readFileSync(path.join(__dirname, 'input'), 'utf8'), 117946]
+    ['abcdef', 609043],
+    ['pqrstuv', 1048970],
+    [fs.readFileSync(path.join(__dirname, 'input'), 'utf8'), 117946]
   ], 60000)
 
   describeTestCases('gold', gold, [
-        [fs.readFileSync(path.join(__dirname, 'input'), 'utf8'), 3938038]
+    [fs.readFileSync(path.join(__dirname, 'input'), 'utf8'), 3938038]
   ], 600000)
 })

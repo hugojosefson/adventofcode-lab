@@ -1,18 +1,18 @@
 export const FOUR_DIRECTIONS = ['up', 'down', 'left', 'right']
 
 export const movePosFrom = pos => direction => ({
-  right: ({x: pos.x + 1, y: pos.y}),
-  up: ({x: pos.x, y: pos.y + 1}),
-  left: ({x: pos.x - 1, y: pos.y}),
-  down: ({x: pos.x, y: pos.y - 1}),
-  upright: ({x: pos.x + 1, y: pos.y + 1}),
-  upleft: ({x: pos.x - 1, y: pos.y + 1}),
-  downright: ({x: pos.x + 1, y: pos.y - 1}),
-  downleft: ({x: pos.x - 1, y: pos.y - 1})
+  right: ({ x: pos.x + 1, y: pos.y }),
+  up: ({ x: pos.x, y: pos.y + 1 }),
+  left: ({ x: pos.x - 1, y: pos.y }),
+  down: ({ x: pos.x, y: pos.y - 1 }),
+  upright: ({ x: pos.x + 1, y: pos.y + 1 }),
+  upleft: ({ x: pos.x - 1, y: pos.y + 1 }),
+  downright: ({ x: pos.x + 1, y: pos.y - 1 }),
+  downleft: ({ x: pos.x - 1, y: pos.y - 1 })
 }[direction])
 
 export const getValueFrom = state => pos => state[pos2key(pos)]
-export const hasValueInState = state => pos => state.hasOwnProperty(pos2key(pos))
+export const hasValueInState = state => pos => Object.prototype.hasOwnProperty.call(state, pos2key(pos))
 
 const pos2key = pos => `${pos.x},${pos.y}`
 
@@ -41,9 +41,9 @@ export const onlyValueInStateAt = (state, pos) => directions => {
   return mustHavesHave && mustNotHavesAreEmpty
 }
 
-export const calculateResult = ({calculateValue, state, pos, n, shouldStop = () => false}) => {
+export const calculateResult = ({ calculateValue, state, pos, n, shouldStop = () => false }) => {
   while (n > 1) {
-    if (shouldStop({state, pos, n, value: calculateValue({state, pos, n})})) {
+    if (shouldStop({ state, pos, n, value: calculateValue({ state, pos, n }) })) {
       break
     }
 
@@ -51,7 +51,7 @@ export const calculateResult = ({calculateValue, state, pos, n, shouldStop = () 
 
     const mutateMoving = direction => {
       pos = movePosFrom(pos)(direction)
-      state[pos2key(pos)] = calculateValue({state, pos, n})
+      state[pos2key(pos)] = calculateValue({ state, pos, n })
       n--
     }
 
@@ -92,16 +92,16 @@ export const calculateResult = ({calculateValue, state, pos, n, shouldStop = () 
       continue
     }
 
-    throw new Error(JSON.stringify({n, pos, value: calculateValue({state, pos, n}), state}, null, 2))
+    throw new Error(JSON.stringify({ n, pos, value: calculateValue({ state, pos, n }), state }, null, 2))
   }
 
-  return {state, pos, n, value: calculateValue({state, pos, n})}
+  return { state, pos, n, value: calculateValue({ state, pos, n }) }
 }
 
-const initPos = {x: 0, y: 0}
-const initState = calculateValue => ({[pos2key(initPos)]: calculateValue({state: {}, pos: initPos})})
+const initPos = { x: 0, y: 0 }
+const initState = calculateValue => ({ [pos2key(initPos)]: calculateValue({ state: {}, pos: initPos }) })
 
-export default ({calculateValue, shouldStop}) => n => calculateResult({
+export default ({ calculateValue, shouldStop }) => n => calculateResult({
   calculateValue,
   state: initState(calculateValue),
   pos: initPos,

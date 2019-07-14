@@ -17,9 +17,9 @@ const operateOnLights = (lights, [operation, x1, y1, x2, y2]) => {
 }
 
 export default lightOperations => input$ => input$
-    .flatMap(input => Bacon.fromArray(input.split('\n')))
-    .map(line => line.match(/^(turn on|turn off|toggle) ([0-9]+),([0-9]+) through ([0-9]+),([0-9]+)/))
-    .filter(_.isArray)
-    .map(matches => matches.slice(1, 7))
-    .map(([operation, x1, y1, x2, y2]) => [lightOperations[operation], Number(x1), Number(y1), Number(x2), Number(y2)])
-    .reduce({}, operateOnLights)
+  .flatMap(input => Bacon.fromArray(input.split('\n')))
+  .map(line => line.match(/^(turn on|turn off|toggle) ([0-9]+),([0-9]+) through ([0-9]+),([0-9]+)/))
+  .filter(_.isArray)
+  .map(matches => matches.slice(1, 7))
+  .map(([operation, x1, y1, x2, y2]) => [lightOperations[operation], Number(x1), Number(y1), Number(x2), Number(y2)])
+  .reduce({}, operateOnLights)
